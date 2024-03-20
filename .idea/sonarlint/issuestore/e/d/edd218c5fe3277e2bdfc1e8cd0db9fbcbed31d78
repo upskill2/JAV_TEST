@@ -1,3 +1,2 @@
 
-m	java:S106"+Replace this use of System.err by a logger.(“ΖΈ±8‰α¤γε1J$ea6e7b36-f5ee-493f-be92-4c90aacde0db
-m	java:S1064"+Replace this use of System.err by a logger.(„κ«ρ8‹α¤γε1J$286d5d27-b885-4896-b57e-232361ca5daf
+	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(ή¤Ά†8ΖΫζθε1J$1c52a4d2-25da-4918-bc6b-14cc64244f36

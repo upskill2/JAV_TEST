@@ -1,29 +1,30 @@
 package com.example;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SolutionApp {
 
-    public static void main (String[] args) {
-        readAndParseFile ();
+    public static void main (String[] args) throws Exception {
+        readFile ();
     }
 
-    public static void readAndParseFile () {
+    private static void readFile () throws Exception {
         String fileName = "input.txt";
-        List<String> list = new ArrayList<> ();
-        try (Stream<String> lines = Files.lines (Paths.get (fileName))) {
-          list = lines.collect (Collectors.toList ());
-        } catch (IOException e) {
-            System.err.println ("Error reading file: " + e.getMessage ());
+        List<String> list;
+        try (BufferedReader reader = new BufferedReader (new FileReader (fileName))) {
+            list = reader.lines ().toList ();
         }
+        processFile (list);
+    }
+
+    private static void processFile (final List<String> list) throws Exception {
         int numberOfLines = Integer.parseInt (list.get (0).split (" ")[1]) + 2;
-        String s = list.get (1);
+        String s = list.get (1).trim ();
         List<String> resultList = new ArrayList<> ();
         for (int i = 2; i < numberOfLines; i++) {
             String[] split = list.get (i).split (" ");
@@ -37,9 +38,10 @@ public class SolutionApp {
                 resultList.add (String.valueOf (result));
             }
         }
-        writeResultToFile (resultList);
+        writeFile (resultList);
     }
-    private static void writeResultToFile (List<String> result) {
+
+    private static void writeFile (List<String> result) throws Exception {
         String fileName = "output.txt";
         try (BufferedWriter bw = new BufferedWriter (new FileWriter (fileName))) {
             for (int i = 0; i < result.size (); i++) {
@@ -48,8 +50,6 @@ public class SolutionApp {
                     bw.newLine ();
                 }
             }
-        } catch (IOException e) {
-            System.err.println ("Error writing to file: " + e.getMessage ());
         }
     }
 
@@ -61,8 +61,12 @@ public class SolutionApp {
             return -1;
         }
 
-        int otherCharCount = 0;
+        if (l > r || r < 1 || l < 1) {
+            return -1;
+        }
+
         int lookupCharCount = 0;
+        int otherCharCount = 0;
         for (int i = 0; i < k; i++) {
             if (s.charAt (i) == kChar) {
                 otherCharCount++;
@@ -79,4 +83,5 @@ public class SolutionApp {
         }
         return -1;
     }
+
 }
