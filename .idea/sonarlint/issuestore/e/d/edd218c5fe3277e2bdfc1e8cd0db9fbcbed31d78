@@ -1,2 +1,5 @@
 
-ˆ	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(Ş¤¢†8ÆÛæèå1J$1c52a4d2-25da-4918-bc6b-14cc64244f36
+š
+java:S37761"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(µË­öøÿÿÿÿ8»İÕ‚æ1J$c32498b4-8e65-4f10-bb3e-f5d12d396743
+w
+java:S11721"/Remove these unused method parameters "l", "r".(µË­öøÿÿÿÿ8êÕíæ1J$93ac1d01-5873-4321-b52b-c5eb1f5a872d
